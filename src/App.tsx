@@ -33,6 +33,7 @@ function App() {
       <h3>Team Members:</h3>
       <p>Dan Mihovch</p>
       <p>Daniah Jones</p>
+      <p>Brijesh Pachala</p>
     </div>);
   }
   return (
