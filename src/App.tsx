@@ -24,6 +24,16 @@ function App() {
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  //errrrrrrybody just put your names in a p tag inside this function.
+  //should reduce the chances of us being fing up and having merge conflicts
+  function add_names(){
+    return (
+    <div>
+      <h3>Team Members:</h3>
+      <p>Dan Mihovch</p>
+    </div>);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -31,6 +41,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        {add_names()}
         <a
           className="App-link"
           href="https://reactjs.org"
