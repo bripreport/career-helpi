@@ -34,6 +34,7 @@ function App() {
       <p>Dan Mihovch</p>
       <p>Daniah Jones</p>
       <p>Brijesh Pachala</p>
+      <p>Kejae Fletcher</p>
       
     </div>);
   }
