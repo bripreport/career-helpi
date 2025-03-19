@@ -32,6 +32,7 @@ function App() {
     <div>
       <h3>Team Members:</h3>
       <p>Dan Mihovch</p>
+      <p>Daniah Jones</p>
     </div>);
   }
   return (
