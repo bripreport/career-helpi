@@ -11,7 +11,7 @@ FAIL src/App.test.tsx
       src/App.tsx
       src/App.test.tsx
 
-    [0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { [33mBrowserRouter[39m[33m,[39m [33mRoute[39m[33m,[39m [33mRoutes[39m } [36mfrom[39m [32m"react-router-dom"[39m[33m;[39m
+    [0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m { [33mHashRouter[39m[33m,[39m [33mRoute[39m[33m,[39m [33mRoutes[39m } [36mfrom[39m [32m"react-router-dom"[39m[33m;[39m
      [90m   |[39m [31m[1m^[22m[39m
      [90m 2 |[39m [36mimport[39m [33mHome[39m [36mfrom[39m [32m"./pages/Home"[39m[33m;[39m
      [90m 3 |[39m [36mimport[39m [33mBasicAssessment[39m [36mfrom[39m [32m"./pages/BasicAssessment"[39m[33m;[39m
@@ -46,5 +46,5 @@ All files                |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.439 s
+Time:        2.305 s
 Ran all test suites.
