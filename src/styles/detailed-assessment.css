@@ -1,0 +1,14 @@
+#detailed-assess-body {
+    height: 100dvh;
+    width: 100dvw;
+    background-color: #282c34;
+}
+
+#detailed-assessment-container {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

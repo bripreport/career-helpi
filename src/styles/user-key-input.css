@@ -1,0 +1,9 @@
+#user-key-input-wrapper {
+    text-align: center;
+    background-color: #282c34;
+    color: white;
+}
+#user-key-input-box {
+    width: 50%;
+    transform: translate(50%,0);
+}
