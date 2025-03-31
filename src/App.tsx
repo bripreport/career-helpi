@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { Button, Form } from "react-bootstrap";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import BasicAssessment from "./pages/BasicAssessment";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -12,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/basic-assessment" element={<BasicAssessment />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

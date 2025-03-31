@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from "../logo.svg";
-import "../App.css";
 import "../styles/home.css";
 import { Button, Form } from "react-bootstrap";
+import Navbar from "../components/Navbar";
+import sassy from "../assets/sassy.jpg";
 
 export default function Home() {
   //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -40,35 +40,37 @@ export default function Home() {
     );
   }
 
+  function add_logo() {
+    //just a placeholder for an actual logo lol
+    return (
+      <div id="logo-wrapper">
+        <img src={sassy} alt="A friendly sasquatch" />
+      </div>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+    <div className="home">
+      <Navbar />
+      <div className="home-header">
+        <h1>Career Helpi</h1>
+        {add_logo()}
         {add_names()}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Insert API Key Here"
-          onChange={changeKey}
-        ></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+      </div>
+      <body>
+        <Form>
+          <Form.Label>API Key:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Insert API Key Here"
+            onChange={changeKey}
+          ></Form.Control>
+          <br></br>
+          <Button className="Submit-Button" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </body>
     </div>
   );
 }

@@ -1,10 +1,10 @@
-#basic-assess-body{
+#not-found-body{
     height: 100dvh;
     width: 100dvw;
     background-color: #282c34;
 }
 
-#basic-assessment-container {
+#not-found-container {
     text-align: center;
     color: white;
     position: absolute;
