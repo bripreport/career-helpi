@@ -1,7 +1,10 @@
-#basic-assess-body{
+#basic-assessment-body{
     height: 100dvh;
     width: 100dvw;
-    background-color: #282c34;
+    text-align: center;
+    color: white;
+
+
 }
 
 #basic-assessment-container {

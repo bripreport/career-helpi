@@ -4,7 +4,7 @@ import "../styles/basic-assessment.css";
 import ProgressBar from "../components/ProgressBar";
 
 type QuestionType = {
-  type: "option" | "rating";
+  type: "option" | "scale";
   question: string;
   options?: string[];
 };
@@ -50,54 +50,140 @@ const quizQuestions: QuestionType[] = [
   },
 
   {//7
-    type: "rating",
+    type: "scale",
     question: "How much do you enjoy learning a new skill?",
   },
 
   {//8
-    type: "rating",
+    type: "scale",
     question: "How confident are you with technology?",
   },
 
   {//9
-    type: "rating",
+    type: "scale",
     question: "How comfortable are you with public speaking or presenting?",
-
   },
 
   {//10
-    type: "rating",
+    type: "scale",
     question: "How much do you enjoy working with numbers or data?",
-
   },
 
   {//11
-    type: "rating",
+    type: "scale",
     question: "How well do you work in a team?",
   },
 
   {//12
-    type : "rating",
+    type : "scale",
     question: "How important is work-life balance to you?",
-
   },
 ]
 
 
-
 function BasicAssessment(): React.JSX.Element {
-  const message =
-    "Welcome to the Basic Career Assessment! This assessment shouldn't take long, and in just a few quick answers we should be able to match you with a career. If you wish for a more in depth assessment, try our Detailed Career Assessment!";
+  const [inProgress, setInProgress] = useState<boolean>(false);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [answers, setAnswers] = useState<(string | number)[]>([]);
+  const [showResults, setShowResults] = useState<boolean>(false);
+
+
+  const message = inProgress
+    ? "Answer the following questions to the best of your ability. Click 'Next' to proceed."
+    : "Welcome to the Basic Career Quiz This quiz will help you identify your strengths and preferences. Click 'Start' to begin.";
+
+    const startQuiz = () => {
+      setInProgress(true);
+      setCurrentQuestion(0);
+      setAnswers(quizQuestions.map(() => " "));
+      setShowResults(false);
+    }
+
+    const current = quizQuestions[currentQuestion];
+    const lastQuestion = currentQuestion === quizQuestions.length - 1;
+    const completed = answers.filter((a) => a !== " ").length
+
+    const selectAnswer = (answer:string) => {
+      setAnswers(answers.map((a, i) => (i === currentQuestion ? answer : a)));
+      lastQuestion ? setInProgress(false) : setCurrentQuestion(currentQuestion + 1);
+      setShowResults(lastQuestion);
+    }
+
+    const prevQuestion = () => setCurrentQuestion(currentQuestion - 1);
+
+
   return (
-    <div id="basic-assess-body">
+    <div id="basic-assessment-body">
       <header>
         <Navbar />
       </header>
-      <div id="basic-assessment-container">
-        <h1>Basic Career Assessment</h1>
+      <h1>Basic Career Quiz</h1>
         <br></br>
-        <h3>{message}</h3>
+        <h3 style={{fontSize:"20px"}}>{message}</h3>
+      <div id="basic-assessment-container">
+        {!inProgress && !showResults && (
+          <button id="start-button" onClick={startQuiz}>
+            Start Quiz
+          </button>
+        )}
+        {inProgress && (
+          <div id="quiz-card">
+            <ProgressBar questions ={quizQuestions.length} answered={completed}/>
+
+            <p id= "question-number">
+              Question {currentQuestion + 1} of {quizQuestions.length}
+            </p>
+            <p id="question">{current.question}</p>
+            
+            {current.type === "option" && (
+              <div id="option-container">
+                {current.options?.map((option) => (
+                  <button key={option} onClick={() => selectAnswer(option)}>
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {current.type === "scale" && (
+                <div id="scale-container">
+                  <div>
+                  <input
+                  type="range"
+                  min={1}
+                  max={5}
+                  value={answers[currentQuestion] || 3}
+                  onChange={(e) => {
+                  const value = Number(e.target.value);
+                  setAnswers(answers.map((a, i) => (i === currentQuestion ? value : a)));
+                  }}
+                />
+                <button disabled = {answers[currentQuestion] === " "}
+                onClick={() => {
+                  lastQuestion ? setInProgress(false) : setCurrentQuestion(currentQuestion + 1);
+                  setShowResults(lastQuestion);
+                }}
+                >
+                  Confirm 
+                </button>
+              </div>
+                <p>Selected: {answers[currentQuestion] !== " " ? answers[currentQuestion] : "none"} </p>
+            </div>
+                
+          )}
+
+          </div>
+        )}
+
+        {currentQuestion > 0 && inProgress && (
+          <button id="prev-button" onClick={prevQuestion}>
+            Previous
+          </button>
+        )}
+
+
       </div>
+      
     </div>
   );
 }
