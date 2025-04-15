@@ -13,7 +13,7 @@ const quizQuestions: QuestionType[] = [
   {
     type: "option",
     question: "Which activity is the most appealing to you?",
-    options: ["Building/fixing things", "Solving puzzles", "Creating art or music", "Working with animals"],
+    options: ["Building/fixing things", "Solving puzzles", "Creating art or music", "Volunteering", "Working with animals"],
   },
   {
     type: "option",
@@ -75,7 +75,7 @@ function BasicAssessment(): React.JSX.Element {
   const [showResults, setShowResults] = useState<boolean>(false);
 
   const message = inProgress
-    ? "Answer the following questions to the best of your ability. Click 'Next' to proceed."
+    ? "Answer the following questions to the best of your ability."
     : showResults
     ? "Thank you for completing the quiz!"
     : "Welcome to the Basic Career Quiz. This quiz will help you identify your strengths and preferences. Click 'Start' to begin.";
@@ -110,8 +110,6 @@ function BasicAssessment(): React.JSX.Element {
   const getOptionsType = () =>
     current.type === "option" && current.options ? current.options : scaleOptions;
 
-  
-
   const prevQuestion = () => setCurrentQuestion(currentQuestion - 1);
 
   return (
@@ -119,10 +117,10 @@ function BasicAssessment(): React.JSX.Element {
       <header>
         <Navbar />
       </header>
-      <h1>Basic Career Quiz</h1>
-      <br />
-      <h3 style={{ fontSize: "20px" }}>{message}</h3>
       <div id="basic-assessment-container">
+      <h1>Basic Career Quiz</h1>
+      <h3 style={{ fontSize: "20px" }}>{message}</h3>
+
         {!inProgress && !showResults && (
           <button id="start-button" onClick={startQuiz}>
             Start Quiz
@@ -130,8 +128,9 @@ function BasicAssessment(): React.JSX.Element {
         )}
         {inProgress && (
           <div id="quiz-card">
+            <div id= "progress-bar-container">
             <ProgressBar questions={quizQuestions.length} answered={completed} />
-
+            </div>
             <p id="question-number">
               Question {currentQuestion + 1} of {quizQuestions.length}
             </p>
@@ -155,8 +154,6 @@ function BasicAssessment(): React.JSX.Element {
 
         {showResults && !inProgress && (
           <div id= "results-card">
-            <button onClick={startQuiz}> Restart Quiz</button>
-
             <ul>
               {quizQuestions.map((question, index) => (
                 <li key={index}>
@@ -166,6 +163,9 @@ function BasicAssessment(): React.JSX.Element {
               ))}
             </ul>
 
+            <div id="restart-button-container">
+            <button onClick={startQuiz}> Restart Quiz</button>
+            </div>
           </div>
         )}
 
