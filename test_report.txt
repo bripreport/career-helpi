@@ -38,8 +38,8 @@ All files                |       0 |        0 |       0 |       0 |
   Navbar.tsx             |       0 |      100 |       0 |       0 | 5                 
   ProgressBar.tsx        |       0 |        0 |       0 |       0 | 14-26             
   UserKeyInput.tsx       |       0 |        0 |       0 |       0 | 7-27              
- src/pages               |       0 |      100 |       0 |       0 |                   
-  BasicAssessment.tsx    |       0 |      100 |       0 |       0 | 6-7               
+ src/pages               |       0 |        0 |       0 |       0 |                   
+  BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 12-159            
   DetailedAssessment.tsx |       0 |      100 |       0 |       0 | 6-7               
   Home.tsx               |       0 |      100 |       0 |       0 | 9-29              
   NotFound.tsx           |       0 |      100 |       0 |       0 | 6-17              
@@ -47,5 +47,5 @@ All files                |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.375 s
+Time:        2.428 s
 Ran all test suites.
