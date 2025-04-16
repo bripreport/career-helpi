@@ -1,7 +1,7 @@
 #progress-bar-wrapper{
     position: relative;
-    top: 70%;
-    left: 50%;
+    /* top: 70%;
+    left: 50%; */
     height: 4dvh;
     width: 25dvw;
     background-color: rgba(0,0,0,0);

@@ -1,3 +1,12 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #282c34;
+  font-family: sans-serif;
+}
+
 .home-container {
   background-color: #282c34;
   display: flex;
