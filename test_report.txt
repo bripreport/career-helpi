@@ -39,13 +39,13 @@ All files                |       0 |        0 |       0 |       0 |
   ProgressBar.tsx        |       0 |        0 |       0 |       0 | 14-26             
   UserKeyInput.tsx       |       0 |        0 |       0 |       0 | 7-27              
  src/pages               |       0 |        0 |       0 |       0 |                   
-  BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 12-159            
-  DetailedAssessment.tsx |       0 |      100 |       0 |       0 | 6-7               
+  BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 12-161            
+  DetailedAssessment.tsx |       0 |        0 |       0 |       0 | 12-125            
   Home.tsx               |       0 |      100 |       0 |       0 | 9-29              
   NotFound.tsx           |       0 |      100 |       0 |       0 | 6-17              
 -------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.385 s
+Time:        2.463 s
 Ran all test suites.
