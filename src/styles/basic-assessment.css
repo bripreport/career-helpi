@@ -1,3 +1,4 @@
+/*Document styling*/
 #basic-assessment-body {
     min-height: 100dvh;
     width: 100dvw;
@@ -5,7 +6,7 @@
     font-family: sans-serif;
     text-align: center;
 }
-
+/* Body styling */
 #basic-assessment-container {
     text-align: center;
     color: white;
@@ -14,14 +15,17 @@
     padding: 1rem;
 }
 
+/* Header styling */
 #basic-assessment-container h1 {
     margin-bottom: 0.5rem;
 }
 
+/*Dynamic subheading/message styling*/
 #basic-assessment-container h3 {
     margin-bottom: 1.5rem;
 }
 
+/*Container for the quiz elements and content*/
 #quiz-card {
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -30,6 +34,7 @@
     margin: 0 auto 2rem auto;
 }
 
+/* Progress bar centering */
 #progress-bar-container {
     display: flex;
     justify-content: center;
@@ -37,7 +42,7 @@
     margin-bottom: 1rem;
 }
 
-
+/*Layout for answer buttons*/
 #options-container {
     display: flex;
     flex-direction: column;
@@ -45,6 +50,7 @@
     margin-top: 15px;
 }
 
+/* Answer button styling */
 #options-container button {
     padding: 10px;
     border: 1px solid #999;
@@ -59,6 +65,13 @@
     background-color: #444;
 }
 
+/* Highlight selected option for when they go back to previous question */
+.selected {
+    background-color: #444 !important;
+    color: white !important;
+}
+  
+  
 #start-button,
 #prev-button {
     margin-top: 20px;
@@ -80,7 +93,7 @@
     opacity: 0.5;
 }
 
-/* Restart section */
+/* "Results" section */
 #results-card {
     margin-top: 2rem;
     padding: 1rem;

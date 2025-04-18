@@ -75,7 +75,7 @@ function BasicAssessment(): React.JSX.Element {
   const [showResults, setShowResults] = useState<boolean>(false);
 
   const message = inProgress
-    ? "Answer the following questions to the best of your ability."
+    ? "Answer the following questions to the best of your ability. Selecting an option will automatically take you to the next question."
     : showResults
     ? "Thank you for completing the quiz!"
     : "Welcome to the Basic Career Quiz. This quiz will help you identify your strengths and preferences. Click 'Start' to begin.";
@@ -138,7 +138,9 @@ function BasicAssessment(): React.JSX.Element {
 
             <div id= "options-container">
               {getOptionsType().map((option) =>(
-                <button key={option} onClick={() => selectAnswer(option)}>
+                <button key={option} onClick={() => selectAnswer(option)}
+                className={
+                  answers[currentQuestion] === option ? "selected" : ""}>
                   {option}
                 </button>
               ))}
