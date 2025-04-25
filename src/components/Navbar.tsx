@@ -7,6 +7,7 @@ function Navbar() {
       <NavButton path="/" text="Home" />
       <NavButton path="/basic-assessment" text="Basic Assessment" />
       <NavButton path="/detailed-assessment" text="Detailed Assessment" />
+      <NavButton path="/test" text="Dev-test" />
     </nav>
   );
 }
