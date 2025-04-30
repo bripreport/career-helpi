@@ -33,19 +33,21 @@ All files                |       0 |        0 |       0 |       0 |
   App.tsx                |       0 |      100 |       0 |       0 | 8                 
   index.tsx              |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts     |       0 |        0 |       0 |       0 | 3-10              
+ src/api-functions       |       0 |      100 |       0 |       0 |                   
+  api-functions.ts       |       0 |      100 |       0 |       0 | 10-39             
  src/components          |       0 |        0 |       0 |       0 |                   
   NavButton.tsx          |       0 |      100 |       0 |       0 | 11-16             
   Navbar.tsx             |       0 |      100 |       0 |       0 | 5                 
   ProgressBar.tsx        |       0 |        0 |       0 |       0 | 14-26             
   UserKeyInput.tsx       |       0 |        0 |       0 |       0 | 7-27              
  src/pages               |       0 |        0 |       0 |       0 |                   
-  BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 12-161            
-  DetailedAssessment.tsx |       0 |        0 |       0 |       0 | 12-125            
+  BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 13-189            
+  DetailedAssessment.tsx |       0 |        0 |       0 |       0 | 11-151            
   Home.tsx               |       0 |      100 |       0 |       0 | 9-29              
   NotFound.tsx           |       0 |      100 |       0 |       0 | 6-17              
 -------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.463 s
+Time:        2.564 s
 Ran all test suites.
