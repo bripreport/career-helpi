@@ -1,9 +1,8 @@
-
-
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/detailed-assessment.css";
 import ProgressBar from "../components/ProgressBar";
+import { promptChatGpt } from "../api-functions/api-functions";
 
 type DetailedQuestion = {
   question: string;
@@ -12,7 +11,7 @@ type DetailedQuestion = {
 const detailedQuestions: DetailedQuestion[] = [
   { question: "Tell us about a project or experience you're most proud of." },
   { question: "What are your strongest skills or strengths?" },
-  { question: "What kind of work environment do you thrive in?" },
+  { question: "What kind of work environment do you thrive in, and why?" },
   { question: "Describe a time you solved a difficult problem." },
   { question: "What motivates you in your career or personal life?" },
   { question: "What is your biggest career goal right now?" },
@@ -24,6 +23,8 @@ function DetailedAssessment(): React.JSX.Element {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
+  const [gptResponse, setGptResponse] = useState<string>("");
+  const [showResponse, setShowResponse] = useState(false);
 
   const message = inProgress
     ? "Answer the questions in your own words. Click 'Next' to continue."
@@ -37,11 +38,19 @@ function DetailedAssessment(): React.JSX.Element {
     setCurrentQuestion(0);
     setAnswers(detailedQuestions.map(() => ""));
     setShowResults(false);
+    setGptResponse("");
+    setShowResponse(false);
   };
 
   const storeAnswers = (answer: string[]) => {
     localStorage.setItem("detailed-quiz-answers", JSON.stringify(answer));
   };
+
+  const validateAnswers = (answers: string[]): boolean => {
+    return answers.every((answer) => answer.trim().length >= 10);
+  };
+
+
 
   const lastQuestion = currentQuestion === detailedQuestions.length - 1;
   const completed = currentQuestion
@@ -67,14 +76,31 @@ function DetailedAssessment(): React.JSX.Element {
     setCurrentQuestion(currentQuestion - 1);
   };
 
+
+  const handleResults = async () => {
+    !validateAnswers(answers) ? alert("Please answer all questions before submitting.") :
+    promptChatGpt(detailedQuestions.map((q) => q.question), answers).then((response) => {
+      setGptResponse(response);
+      setShowResponse(true);
+    }).catch((error) => {
+      console.error("Error fetching GPT response:", error);
+      alert("An error occurred while fetching the response. Please try again.");
+    });
+  }
+
   return (
     <div id="detailed-assessment-body">
       <header>
         <Navbar />
       </header>
       <div id="detailed-assessment-container">
-        <h1>Detailed Career Quiz</h1>
-        <h3 style={{ fontSize: "20px" }}>{message}</h3>
+        {!showResponse && (
+          <>
+          <h1>Detailed Career Quiz</h1>
+          <h3 style={{ fontSize: "20px" }}>{message}</h3>
+          </>
+        )}
+        
 
         {!inProgress && !showResults && (
           <button id="start-button" onClick={startQuiz}>
@@ -117,7 +143,7 @@ function DetailedAssessment(): React.JSX.Element {
           </div>
         )}
 
-        {showResults && (
+        {showResults && !inProgress && !showResponse && (
           <>
             <div id="results-card">
               <ul>
@@ -133,7 +159,23 @@ function DetailedAssessment(): React.JSX.Element {
             <div id="restart-button-container">
               <button onClick={startQuiz}>Restart Quiz</button>
             </div>
+
+            <button id="submit-button" onClick={handleResults}>
+              Get My Career Match!
+            </button>
           </>
+        )}
+
+        {showResponse && (
+          <div id="gpt-response-card">
+            <h3>Career Match Results</h3>
+            <pre id="gpt-response-text">
+              {gptResponse}
+            </pre>
+            <button id="restart-button" onClick={startQuiz}>
+              Restart Quiz
+            </button>
+          </div>
         )}
       </div>
     </div>
