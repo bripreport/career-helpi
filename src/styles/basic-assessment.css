@@ -129,3 +129,28 @@
 #restart-button-container button:hover {
     opacity: 0.5;
 }
+
+
+/* #gpt-response-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #666;
+    margin: 0 auto 2rem auto;
+
+} */
+
+#gpt-response-text {
+    text-align: left;
+    white-space: pre-wrap; 
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #666;
+    line-height: 1.6;
+    font-family: monospace;
+    max-width: 100%;
+    max-height: none;
+  }
+  

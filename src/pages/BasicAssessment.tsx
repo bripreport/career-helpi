@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/basic-assessment.css";
 import ProgressBar from "../components/ProgressBar";
+import { promptChatGpt } from "../api-functions/api-functions";
 
 type QuestionType = {
   type: "option" | "scale";
@@ -73,6 +74,8 @@ function BasicAssessment(): React.JSX.Element {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
+  const [gptResponse, setGptResponse] = useState<string>("");
+  const [showResponse, setShowResponse] = useState<boolean>(false);
 
   const message = inProgress
     ? "Answer the following questions to the best of your ability. Selecting an option will automatically take you to the next question."
@@ -85,10 +88,16 @@ function BasicAssessment(): React.JSX.Element {
     setCurrentQuestion(0);
     setAnswers(quizQuestions.map(() => ""));
     setShowResults(false);
+    setGptResponse("");
+    setShowResponse(false);
   };
 
   const storeAnswers = (answer: string[]) => {
     localStorage.setItem("basic-quiz-answers", JSON.stringify(answer));
+  }
+
+  const validateAnswers = (answers: string[]): boolean => {
+    return answers.every((answer) => answer !== "");
   }
 
   const current = quizQuestions[currentQuestion];
@@ -112,14 +121,33 @@ function BasicAssessment(): React.JSX.Element {
 
   const prevQuestion = () => setCurrentQuestion(currentQuestion - 1);
 
+  const handleResults = async () => {
+    !validateAnswers(answers) ? 
+    alert("Please answer all questions before submitting.") :
+    promptChatGpt(quizQuestions.map((q) => q.question), answers).then((response) => {
+      setGptResponse(response);
+      setShowResponse(true);
+    })
+    .catch((error) => {
+      console.error("Error prompting ChatGPT:", error);
+      alert("An error occurred while processing your request. Please try again later.");
+    });
+  }
+
+
   return (
     <div id="basic-assessment-body">
       <header>
         <Navbar />
       </header>
       <div id="basic-assessment-container">
-      <h1>Basic Career Quiz</h1>
-      <h3 style={{ fontSize: "20px" }}>{message}</h3>
+        {!showResponse && (
+          <>
+          <h1>Basic Career Quiz</h1>
+          <h3 style={{ fontSize: "20px" }}>{message}</h3>
+          </>
+        )}
+        
 
         {!inProgress && !showResults && (
           <button id="start-button" onClick={startQuiz}>
@@ -154,7 +182,7 @@ function BasicAssessment(): React.JSX.Element {
           </button>
         )}
 
-        {showResults && !inProgress && (
+        {showResults && !inProgress && !showResponse && (
           <div id= "results-card">
             <ul>
               {quizQuestions.map((question, index) => (
@@ -168,7 +196,26 @@ function BasicAssessment(): React.JSX.Element {
             <div id="restart-button-container">
             <button onClick={startQuiz}> Restart Quiz</button>
             </div>
+
+
+            <button id="submit-button" onClick={handleResults}>
+              Get My Career Match!
+            </button> 
           </div>
+        )}
+
+        {showResponse && (
+          <> 
+          <h3>Career Match Results</h3>
+          <div id="gpt-response-card">
+            <pre id = "gpt-response-text">
+              {gptResponse}
+            </pre>
+            <button id="restart-button" onClick={startQuiz}>
+              Restart Quiz
+            </button>
+          </div></>
+         
         )}
 
       </div>
