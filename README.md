@@ -1,3 +1,15 @@
+#Using the backend
+
+api url:
+
+https://career-helpi-backend.vercel.app/api/chatgpt
+
+backend repo
+
+https://github.com/dmihovch/career-helpi-backend
+
+
+
 # Getting Started with Helpi
 
 Packages Included:
