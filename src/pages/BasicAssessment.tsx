@@ -122,9 +122,11 @@ function BasicAssessment(): React.JSX.Element {
     localStorage.setItem("basic-quiz-answers", JSON.stringify(answer));
   };
 
+  /*
   const validateAnswers = (answers: string[]): boolean => {
     return answers.every((answer) => answer !== "");
   };
+  */
 
   const current = quizQuestions[currentQuestion];
   const lastQuestion = currentQuestion === quizQuestions.length - 1;
