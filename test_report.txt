@@ -36,7 +36,7 @@ All files                |       0 |        0 |       0 |       0 |
  src/api-functions       |       0 |      100 |       0 |       0 |                   
   api-functions.ts       |       0 |      100 |       0 |       0 | 10-39             
  src/components          |       0 |        0 |       0 |       0 |                   
-  Loading.tsx            |       0 |      100 |       0 |       0 | 4                 
+  Loading.tsx            |       0 |      100 |       0 |       0 | 5                 
   NavButton.tsx          |       0 |      100 |       0 |       0 | 11-16             
   Navbar.tsx             |       0 |      100 |       0 |       0 | 5                 
   ProgressBar.tsx        |       0 |        0 |       0 |       0 | 14-26             
@@ -50,5 +50,5 @@ All files                |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.727 s
+Time:        2.669 s
 Ran all test suites.
