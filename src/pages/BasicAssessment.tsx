@@ -4,6 +4,7 @@ import "../styles/basic-assessment.css";
 import ProgressBar from "../components/ProgressBar";
 import { promptChatGpt } from "../api-functions/api-functions";
 import Loading from "../components/Loading";
+import {createReport} from "../utils/createReports";
 
 type QuestionType = {
   type: "option" | "scale";
@@ -161,7 +162,7 @@ function BasicAssessment(): React.JSX.Element {
     )
       .then((response) => {
         setGptResponse(response);
-        setLoading(false);
+        createReport("Basic Quiz", response);
         setShowResponse(true);
       })
       .catch((error) => {
@@ -170,8 +171,8 @@ function BasicAssessment(): React.JSX.Element {
         alert(
           "An error occurred while processing your request. Please try again later.",
         );
-      });
-    setLoading(false);
+      })
+      .finally(() => setLoading(false));
   };
 
   return (

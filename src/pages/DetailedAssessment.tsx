@@ -4,6 +4,7 @@ import "../styles/detailed-assessment.css";
 import ProgressBar from "../components/ProgressBar";
 import { promptChatGpt } from "../api-functions/api-functions";
 import Loading from "../components/Loading";
+import { createReport } from "../utils/createReports";
 
 type DetailedQuestion = {
   question: string;
@@ -85,15 +86,18 @@ function DetailedAssessment(): React.JSX.Element {
     )
       .then((response) => {
         setGptResponse(response);
+        createReport("Detailed Quiz", response);
         setShowResponse(true);
+        
       })
       .catch((error) => {
         console.error("Error fetching GPT response:", error);
         alert(
           "An error occurred while fetching the response. Please try again.",
         );
-      });
-    setLoading(false);
+      })
+      .finally(() => setLoading(false));
+    
   };
 
   return (

@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import BasicAssessment from "./pages/BasicAssessment";
 import NotFound from "./pages/NotFound";
 import DetailedAssessment from "./pages/DetailedAssessment";
+import Reports from "./pages/Reports";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/basic-assessment" element={<BasicAssessment />} />
         <Route path="/detailed-assessment" element={<DetailedAssessment />} />
+        <Route path ="/reports" element={<Reports />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </HashRouter>
