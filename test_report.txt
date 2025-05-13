@@ -44,11 +44,11 @@ All files                |       0 |        0 |       0 |       0 |
  src/pages               |       0 |        0 |       0 |       0 |                   
   BasicAssessment.tsx    |       0 |        0 |       0 |       0 | 14-235            
   DetailedAssessment.tsx |       0 |        0 |       0 |       0 | 12-165            
-  Home.tsx               |       0 |      100 |       0 |       0 | 9-29              
+  Home.tsx               |       0 |      100 |       0 |       0 | 8-61              
   NotFound.tsx           |       0 |      100 |       0 |       0 | 6-17              
 -------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        2.822 s
+Time:        2.63 s
 Ran all test suites.
