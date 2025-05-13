@@ -14,3 +14,7 @@
         transform: rotate(360deg);
     }
 }
+
+#loading-text {
+    padding-bottom: 10dvi;
+}
