@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/career-helpi/static/css/main.1d31bb7e.css",
-    "main.js": "/career-helpi/static/js/main.64ecf2ab.js",
-    "static/js/453.bad6c33a.chunk.js": "/career-helpi/static/js/453.bad6c33a.chunk.js",
-    "static/media/ChatGPT_Image_May_13__2025__02_28_35_PM-removebg-preview.png": "/career-helpi/static/media/ChatGPT_Image_May_13__2025__02_28_35_PM-removebg-preview.6fcc0568c6a96ae3a25f.png",
+    "main.css": "/career-helpi/static/css/main.bf91bc84.css",
+    "main.js": "/career-helpi/static/js/main.79902591.js",
     "index.html": "/career-helpi/index.html",
-    "main.1d31bb7e.css.map": "/career-helpi/static/css/main.1d31bb7e.css.map",
-    "main.64ecf2ab.js.map": "/career-helpi/static/js/main.64ecf2ab.js.map",
-    "453.bad6c33a.chunk.js.map": "/career-helpi/static/js/453.bad6c33a.chunk.js.map"
+    "main.bf91bc84.css.map": "/career-helpi/static/css/main.bf91bc84.css.map",
+    "main.79902591.js.map": "/career-helpi/static/js/main.79902591.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d31bb7e.css",
-    "static/js/main.64ecf2ab.js"
+    "static/css/main.bf91bc84.css",
+    "static/js/main.79902591.js"
   ]
 }
