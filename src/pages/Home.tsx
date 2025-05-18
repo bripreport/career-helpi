@@ -1,13 +1,25 @@
 import React from "react";
 import "../styles/home.css";
 import Navbar from "../components/Navbar";
-import sassy from "../assets/sassy.jpg";
-import UserKeyInput from "../components/UserKeyInput";
+import sassy from "../assets/ChatGPT_Image_May_13__2025__02_28_35_PM-removebg-preview.png";
 
 export default function Home() {
+  function greeting() {
+    return (
+      <>
+        <div id="greeting-wrapper">
+          <h1 id="greeting-text-wrapper">
+            Thinking is hard... Letting AI think for you is easy! Find your
+            dream career today with Career Helpi!
+          </h1>
+        </div>
+      </>
+    );
+  }
+
   function add_names() {
     return (
-      <div>
+      <div id="names-wrapper">
         <h3>Team Members:</h3>
         <p>Dan Mihovch</p>
         <p>Daniah Jones</p>
@@ -26,6 +38,26 @@ export default function Home() {
     );
   }
 
+  function no_api_key() {
+    return (
+      <>
+        <div id="footer-wrapper">
+          <h1 id="footer-text">
+            No need for an api key! Career Helpi is powered by{" "}
+            <a
+              id="footer-link"
+              href="https://github.com/dmihovch/career-helpi-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Vercel Serverless Functions
+            </a>
+          </h1>
+        </div>
+      </>
+    );
+  }
+
   return (
     <div className="home">
       <header>
@@ -37,10 +69,10 @@ export default function Home() {
             <h1>Career Helpi</h1>
             {add_logo()}
           </div>
-
-          {add_names()}
+          {greeting()}
         </div>
-        <UserKeyInput />
+        {no_api_key()}
+        {add_names()}
       </body>
     </div>
   );
