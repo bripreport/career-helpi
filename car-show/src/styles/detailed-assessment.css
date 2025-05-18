@@ -1,0 +1,225 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+  margin-top: 5em;
+}
+
+/* Body wrapper */
+#detailed-assessment-body {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 8rem; /* Move content down */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Centered content */
+#detailed-assessment-container {
+  max-width: 700px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  color: white;
+}
+/* Section styling */
+#detailed-assessment-container {
+    max-width: 800px;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  #detailed-assessment-container h1 {
+    font-size: 4.25rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+  }
+  
+  #detailed-assessment-container h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+/* Quiz Card */
+#quiz-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Progress Bar */
+#progress-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Text Input */
+#text-input {
+  padding: 0.75rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #888;
+  background-color: #222;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  background-color: #0000FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0097a7;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* GPT Results */
+#results-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid #666;
+  text-align: left;
+}
+
+#results-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 3rem;
+}
+
+#results-card li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Restart button container */
+#restart-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#restart-button-container button {
+  background-color: #0000FF;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+
+#restart-button-container button:hover {
+  background-color: #0097a7;
+}
+
+/* GPT Response Text */
+#gpt-response-text {
+  text-align: left;
+  white-space: pre-wrap;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #666;
+  line-height: 1.6;
+  font-family: monospace;
+  max-width: 100%;
+}
+
+.car-animation {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    width: 100vw;
+    height: 150px;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  /* Wrapper that moves everything */
+  .car-wrapper {
+    position: absolute;
+    left: -200px;
+    animation: drive 10s linear infinite;
+    display: flex;
+    align-items: flex-end;
+    gap: 0; /* no gap between trail and car */
+  }
+  
+  /* The car image */
+  .car {
+    width: 120px;
+    z-index: 2;
+  }
+  
+  /* Short trail that stays behind the car */
+  .car-trail {
+    width: 60px;
+    height: 6px;
+    background: linear-gradient(to left, #3b82f6, transparent); /* 👈 Fade from blue to transparent going left */
+    opacity: 0.8;
+    border-radius: 4px;
+    filter: blur(2px);
+    z-index: 1;
+    align-self: center;
+  }
+  
+  
+  @keyframes drive {
+    0% {
+      left: -200px;
+    }
+    100% {
+      left: 110%;
+    }
+  }
+  
+  @keyframes trail {
+    0% {
+      left: -80px;
+    }
+    100% {
+      left: calc(110% + 120px); /* trail stays behind car */
+    }
+  }
+  
+  

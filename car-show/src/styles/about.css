@@ -1,0 +1,144 @@
+
+
+.about-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(15, 20, 35, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding-top: 75px;
+  }
+  
+  .about-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-hero h1 {
+    font-size: 3rem;
+    color: #62aaff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-hero p {
+    font-size: 1.25rem;
+    color: #cccccc;
+  }
+  
+  .about-content h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: #89c4ff;
+  }
+  
+  .about-content p,
+  .about-content li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  
+  .about-content ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+  
+  blockquote {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #62aaff;
+    background-color: rgba(1, 1, 1, 0.05);
+    font-style: italic;
+    color: #a0d8ff;
+  }
+  
+  .cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .cta p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #eeeeee;
+  }
+  
+  .start-btn {
+    background-color: #62aaff;
+    color: #111;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-btn:hover {
+    background-color: #3b82f6;
+    color: #fff;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-wrapper {
+    background: linear-gradient(135deg, #89c4ff, #d3a4ff);
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .team-member img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    display: block;
+  }
+  
+  .team-member p {
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .about-container {
+      padding: 1.2rem;
+    }
+  
+    .about-hero h1 {
+      font-size: 2.2rem;
+    }
+  
+    .about-content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .cta p {
+      font-size: 1rem;
+    }
+  }
+  

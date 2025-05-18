@@ -1,0 +1,210 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* prevent scrolling */
+  font-family: sans-serif;
+  background: black;
+}
+#root, .page, .container {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: visible;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Navbar styles */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  width: 100%;
+  z-index: 20;
+  box-sizing: border-box;
+}
+.nav-links a,
+.nav-button {
+  pointer-events: auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: auto;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  pointer-events: auto;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;
+}
+
+.nav-button {
+  background: #0000FF;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white !important;
+  font-weight: 600;
+}
+
+.nav-button:hover {
+  background: #0097a7;
+}
+.overlay,
+.navbar {
+  pointer-events: none;  /* This allows clicks to pass through */
+}
+.nav-links a,
+.hero-button,
+.nav-button {
+  pointer-events: auto;  /* These can still be clicked */
+}
+.overlay {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  text-align: center;
+  z-index: 10;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 10em;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.hero-button {
+  background: #0000FF;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-bottom: 10em;
+}
+
+.hero-button:hover {
+  background: #0097a7;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background: rgba(0,0,0,0.7);
+    padding: 1rem;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none; /* Add toggle button to show */
+  }
+}
+.quiz-section {
+  padding-top: 10em;
+  padding-bottom: 4em;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+}
+
+.quiz-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-description {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.quiz-question {
+  margin: 2em 0;
+}
+
+.quiz-button {
+  margin: 0.5em;
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #0000FF;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quiz-button:hover {
+  background-color: #0097a7;
+}
