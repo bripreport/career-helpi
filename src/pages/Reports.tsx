@@ -21,37 +21,37 @@ function Reports(): React.JSX.Element {
     }
 
     return (
-        <div id="reports-container">
+        <>
             <Navbar />
+            <div id="reports-container">
             <h1>Career Reports</h1>
 
             {selectedReport ? (
-                <div id= "full-report-card">
-                    <p><strong>Type:</strong> {selectedReport.type} | <strong>Date:</strong> {new Date(selectedReport.date).toLocaleDateString()}</p>
-                    <pre id="full-report"> {selectedReport.report} </pre>
-                    <button id="back-button" onClick={() => setSelectedReport(null)}>Back</button>
+                <div id="full-report-card">
+                <p><strong>Type:</strong> {selectedReport.type} | <strong>Date:</strong> {new Date(selectedReport.date).toLocaleDateString()}</p>
+                <pre id="full-report"> {selectedReport.report} </pre>
+                <button id="back-button" onClick={() => setSelectedReport(null)}>Back</button>
                 </div>
 
-            ): (
+            ) : (
                 <div id="reports-list">
-                    {reports.length === 0 ? (
-                        <p>No reports available. Please complete a quiz to generate a report.</p>
-                    ) : (
-                        reports.map((report, index) => (
-                            <div key={index} className="report-card">
-                                <h3>{report.type} Report</h3>
-                                <p>Date: {new Date(report.date).toLocaleDateString()}</p>
-                                <button onClick={() => setSelectedReport(report)}>View Full Report</button>
-                                <button onClick={() => deleteReport(index)}>Delete</button>
-                            </div>
-                        ))
-                    )}
+                {reports.length === 0 ? (
+                    <p>No reports available. Please complete a quiz to generate a report.</p>
+                ) : (
+                    reports.map((report, index) => (
+                    <div key={index} className="report-card">
+                        <h3>{report.type} Report</h3>
+                        <p>Date: {new Date(report.date).toLocaleDateString()}</p>
+                        <button onClick={() => setSelectedReport(report)}>View Full Report</button>
+                        <button onClick={() => deleteReport(index)}>Delete</button>
+                    </div>
+                    ))
+                )}
                 </div>
-            )
-        
-        }
+            )}
 
-        </div>
+            </div>
+        </>
     );
 }
 export default Reports;

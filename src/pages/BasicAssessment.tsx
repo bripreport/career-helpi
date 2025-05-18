@@ -56,15 +56,6 @@ const quizQuestions: QuestionType[] = [
     question: "What is your ideal work schedule?",
     options: ["9-5", "Flexible", "Shifts", "Freelance", "Part-time"],
   },
-  // {
-  //   type: "option",
-  //   question: "What motivates you the most in a job?",
-  //   options: ["Helping others", "Learning new things", "Making money", "Working independently", "Being creative"],
-  // },
-  // {
-  //   type: "scale",
-  //   question: "How much do you enjoy learning a new skill?",
-  // },
   {
     type: "scale",
     question: "How confident are you with technology?",
@@ -122,12 +113,6 @@ function BasicAssessment(): React.JSX.Element {
   const storeAnswers = (answer: string[]) => {
     localStorage.setItem("basic-quiz-answers", JSON.stringify(answer));
   };
-
-  /*
-  const validateAnswers = (answers: string[]): boolean => {
-    return answers.every((answer) => answer !== "");
-  };
-  */
 
   const current = quizQuestions[currentQuestion];
   const lastQuestion = currentQuestion === quizQuestions.length - 1;
@@ -235,7 +220,7 @@ function BasicAssessment(): React.JSX.Element {
                   {quizQuestions.map((question, index) => (
                     <li key={index}>
                       <strong>Q: </strong> {question.question} <br />
-                      <strong>A: </strong> {answers[index]}
+                      <strong>A: </strong> {answers[index]} <br />
                     </li>
                   ))}
                 </ul>

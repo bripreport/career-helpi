@@ -47,13 +47,6 @@ function DetailedAssessment(): React.JSX.Element {
     localStorage.setItem("detailed-quiz-answers", JSON.stringify(answer));
   };
 
-  /*
-  const validateAnswers = (answers: string[]): boolean => {
-    return answers.every((answer) => answer.trim().length >= 10);
-  };
-
-  */
-
   const lastQuestion = currentQuestion === detailedQuestions.length - 1;
   const completed = currentQuestion;
 
